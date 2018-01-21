@@ -10,7 +10,6 @@ def fibonacci(n):
     :param num: n is the desired nth value in the series
     :return: Returns the nth value in the Fibonacci series
     """
-
     # Lower bounds check
     if n <= 0:
         return None
@@ -29,19 +28,20 @@ def fibonacci(n):
 # General series function
 
 
-# Test with Assert statements
-
-
 def main():
     """
     Test functions using asserts.
     :return: None
     """
 
-    print(fibonacci(8))
+    test_data_fibonacci = [
+        ( -15, None), (1, 0), (9, 21), (10, 34), (16, 610), (20, 4181), (30, 514229),
+    ]
 
-    for x in range(10):
-        print(x, fibonacci(x))
+    print("Assert tests:")
+    for v in test_data_fibonacci:
+        print(' fibonacci, given', v[0], 'expected result', v[1])
+        assert fibonacci(v[0]) ==  v[1]
 
 
 if __name__ == "__main__":
