@@ -1,27 +1,27 @@
 #!/usr/bin/env python3
 
 # Name error - Calls a variable that doesn't exist
-# def error_name():
-#     print(test_name_error)
+def error_name():
+    print(test_name_error)
 
-# error_name()
+error_name()
 
 # TypeError
-# def error_type():
-#     a = 5
-#     b = "some string"
-#     return a + b
+def error_type():
+    a = 5
+    b = "some string"
+    return a + b
 
 
-# error_type()
+error_type()
 
 
 # SyntaxError - left off colon
-# def error_syntax()
-#     print("error")
+def error_syntax()
+    print("error")
 
 
-# error_syntax()
+error_syntax()
 
 # AttributeError
 def error_attr(a, b):
