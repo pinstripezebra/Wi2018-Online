@@ -3,42 +3,42 @@
 #  draw ascii grids
 # ------------------------------------
 
-P = '+'
-D = '-'
-V = '|'
-S = ' '
+# Global constants for readability
+PLS = '+'
+DSH = '-'
+VLN = '|'
+SPC = ' '
 
 
-def print_grid(n):
+def print_grid(grid_width):
     """ Print a 2x2 grid with size as close to 'n' total columns as possible.
-    :rtype: None"""
+    :rtype: None """
 
-    if n < 3:
-        n = 3
-    if n > 20:
-        n = 20
+    if grid_width < 3:
+        grid_width = 3
+    if grid_width > 20:
+        grid_width = 20
 
-    dash = n // 2
+    box_size = grid_width // 2
 
-    h_line = P + D * dash + P + D * dash + P
-    grid_body = (V + S * dash + V + S * dash + V + '\n') * dash
+    h_line = PLS + DSH * box_size + PLS + DSH * box_size + PLS
+    grid_body = (VLN + SPC * box_size + VLN + SPC * box_size + VLN + '\n') * box_size
 
-    print(h_line)
-    print(grid_body, end='')
-    print(h_line)
-    print(grid_body, end='')
-    print(h_line)
+    print(h_line)           # print top line
+    for t in range(2):      # print two grid rows
+        print(grid_body, end='')
+        print(h_line)
 
 
 def print_grid2(box_count, box_size):
     """ Print a 'box_count x box_count' grid with each box 'box_size' units wide.
-    :rtype: None"""
+    :rtype: None """
 
     if box_count <= 0 or box_size < 0:
         return
 
-    h_line = P + ((D * box_size + P) * box_count)
-    b_line = V + ((S * box_size + V) * box_count)
+    h_line = PLS + ((DSH * box_size + PLS) * box_count)
+    b_line = VLN + ((SPC * box_size + VLN) * box_count)
 
     for h_line_count in range(box_count + 1):  # need one more horizontal line than number of cells
         # draw horizontal lines
@@ -52,25 +52,22 @@ def print_grid2(box_count, box_size):
 
 def main():
     """ Test functions for grid printer
-    :rtype: None
-    """
-    print("grid printer test - 2 by 2 grid")
-    print_grid(8)
-    print_grid(3)
-    print_grid(20)
-    print_grid(-5)
-    print_grid(30)
+    :rtype: None """
+
+    print("grid printer test - print_grid")
+    test_data = (8, 3, 20, -5, 30)
+    for n in test_data:
+        print("grid size: ", n)
+        print_grid(n)
 
     print("grid printer test - print_grid2")
-    print_grid2(3, 4)
-    print_grid2(5, 3)
-    print_grid2(2, 2)
-    print_grid2(2, 1)
-    print_grid2(30, 1)
-    print_grid2(2, -5)
-    print_grid2(0, 0)
-    print_grid2(1, 1)
-    print_grid2(1, 0)
+    test_data = [
+        (3, 4), (5, 3), (2, 2), (2, 1), (30, 1),
+        (2, -5), (0, 0), (1, 1), (1, 0),
+        ]
+    for grid in test_data:
+        print("box count: ", grid[0], ", box size: ", grid[1])
+        print_grid2(grid[0], grid[1])
 
 
 if __name__ == "__main__":
