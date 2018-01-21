@@ -3,6 +3,10 @@
 #  draw ascii grids
 # ------------------------------------
 
+P = '+'
+D = '-'
+V = '|'
+S = ' '
 
 def print_grid(n):
     """ Print a 2x2 grid with size as close to 'n' total columns as possible.
@@ -15,8 +19,8 @@ def print_grid(n):
 
     dash = n // 2
 
-    h_line = '+' + '-' * dash + '+' + '-' * dash + '+'
-    grid_body = ('|' + ' ' * dash + '|' + ' ' * dash + '|' + '\n') * dash
+    h_line = P + D * dash + P + D * dash + P
+    grid_body = (V + S * dash + V + S * dash + V + '\n') * dash
 
     print(h_line)
     print(grid_body, end = '')
@@ -32,10 +36,6 @@ def print_grid2(box_count, box_size):
     if box_count <= 0 or box_size < 0:
         return
 
-    P = '+'
-    D = '-'
-    V = '|'
-    S = ' '
     h_line = P + ((D * box_size + P) * box_count)
     b_line = V + ((S * box_size + V) * box_count)
 
