@@ -5,13 +5,13 @@ plus, minus, bar, space = '+', '-', '|', ' '
 numcells = 2
 numdashes = 4
 
-# construct the plus-and-dashes line, eg., + - - - - + - - - - +
+# construct the plus-and-dashes line, + - - - - + - - - - +
 plusline = ''
 for i in range(numcells):
     plusline += plus + space + (minus+space)*numdashes
 plusline += plus
 
-# construct the bars-and-spaces line, eg., |         |         |
+# construct the bars-and-spaces line, |         |         |
 barline = ''
 for i in range(numcells):
     barline += bar + space + space*2*numdashes
@@ -32,9 +32,7 @@ def print_grid(cellsize):
 
     cellsize: number of symbols in the top side of one cell,
               i.e. spaces ' ' and dashes '-',
-              but excluding plus signs at both ends;
-              number can be 0, odd or even (if even, reduced
-              to the greatest odd because of the symmetry of pattern)
+              but excluding plus signs at both ends
     Eg. print_grid(3) or print_grid(4) prints
             + - + - +
             |   |   |
@@ -65,22 +63,20 @@ def print_grid(cellsize):
             print(barline)
     print(plusline)
 
+
 # print_grid(0)
-# print_grid(3)
-# print_grid(4) #same as print_grid(3) above
-# print_grid(9) #same result as in print_grid(11) in the assignment
-# print_grid(15)
+# print_grid(3)  # same result as in print_grid(3) in the assignment
+# print_grid(4)  # same as print_grid(3) above
+# print_grid(9)  # same result as in print_grid(11) in the assignment
+# print_grid(15)  # same result as in print_grid(15) in the assignment
 
 # PART 3 - make a 2-parameter function
-
 
 def print_grid2(numcells, cellsize):
     """Print a square grid.
 
-    numcells: number of cells in one side of the grid,
-              number expected to be at least 1
-    cellsize: number of dashes or bar signs in one side of the cell,
-               number can be 0
+    numcells: number of cells in one side of the grid
+    cellsize: number of dashes or bar signs in one side of the cell
     Eg. print_grid2(2, 1) prints
             + - + - +
             |   |   |
@@ -107,6 +103,7 @@ def print_grid2(numcells, cellsize):
         for j in range(cellsize):
             print(barline)
     print(plusline)
+
 
 # print_grid2(1, 0)
 # print_grid2(1, 1)
