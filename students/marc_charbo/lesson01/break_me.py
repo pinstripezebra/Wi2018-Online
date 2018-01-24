@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-print ('break me.. merge conflict!')
+print ('break me and more things')
+print('develop stuff')
 
 def division (x,y):
     try:
