@@ -2,27 +2,27 @@
 # PART 1 - print a 2x2 grid, each cell 4 dashes large
 
 plus, minus, bar, space = '+', '-', '|', ' '
-numcells = 2
-numdashes = 4
+num_cells = 2
+num_dashes = 4
 
 # construct the plus-and-dashes line, + - - - - + - - - - +
-plusline = ''
-for i in range(numcells):
-    plusline += plus + space + (minus+space)*numdashes
-plusline += plus
+plus_line = ''
+for _ in range(num_cells):
+    plus_line += plus + space + ((minus + space) * num_dashes)
+plus_line += plus
 
 # construct the bars-and-spaces line, |         |         |
-barline = ''
-for i in range(numcells):
-    barline += bar + space + space*2*numdashes
-barline += bar
+bar_line = ''
+for _ in range(num_cells):
+    bar_line += bar + space + (space * 2 * num_dashes)
+bar_line += bar
 
 # print the grid
-for i in range(numcells):
-    print(plusline)
-    for i in range(numdashes):
-        print(barline)
-print(plusline)
+for _ in range(num_cells):
+    print(plus_line)
+    for __ in range(num_dashes):
+        print(bar_line)
+print(plus_line)
 
 
 # PART 2 - convert the above into a function with 1 parameter
@@ -41,27 +41,27 @@ def print_grid(cellsize):
             + - + - +
     """
     plus, minus, bar, space = '+', '-', '|', ' '
-    numcells = 2
+    num_cells = 2
     # convert number of symbols in the top of each cell into number of dashes
-    numdashes = int((cellsize-1)/2)
+    num_dashes = int((cellsize-1)/2)
     # construct the plus-and-dashes line, eg., + - - - - + - - - - +
-    plusline = ''
-    for i in range(numcells):
-        plusline += plus + space + (minus+space)*numdashes
-    plusline += plus
+    plus_line = ''
+    for _ in range(num_cells):
+        plus_line += plus + space + ((minus + space) * num_dashes)
+    plus_line += plus
 
     # construct the bars-and-spaces line, eg., |         |         |
-    barline = ''
-    for i in range(numcells):
-        barline += bar + space + space*2*numdashes
-    barline += bar
+    bar_line = ''
+    for _ in range(num_cells):
+        bar_line += bar + space + (space * 2 * num_dashes)
+    bar_line += bar
 
     # print the grid
-    for i in range(numcells):
-        print(plusline)
-        for j in range(numdashes):
-            print(barline)
-    print(plusline)
+    for _ in range(num_cells):
+        print(plus_line)
+        for __ in range(num_dashes):
+            print(bar_line)
+    print(plus_line)
 
 
 # print_grid(0)
@@ -72,10 +72,10 @@ def print_grid(cellsize):
 
 # PART 3 - make a 2-parameter function
 
-def print_grid2(numcells, cellsize):
+def print_grid2(num_cells, cellsize):
     """Print a square grid.
 
-    numcells: number of cells in one side of the grid
+    num_cells: number of cells in one side of the grid
     cellsize: number of dashes or bar signs in one side of the cell
     Eg. print_grid2(2, 1) prints
             + - + - +
@@ -86,23 +86,23 @@ def print_grid2(numcells, cellsize):
     """
     plus, minus, bar, space = '+', '-', '|', ' '
     # construct the plus-and-dashes line, eg., + - - - - + - - - - +
-    plusline = ''
-    for i in range(numcells):
-        plusline += plus + space + (minus+space)*cellsize
-    plusline += plus
+    plus_line = ''
+    for _ in range(num_cells):
+        plus_line += plus + space + ((minus + space) * cellsize)
+    plus_line += plus
 
     # construct the bars-and-spaces line, eg., |         |         |
-    barline = ''
-    for i in range(numcells):
-        barline += bar + space + space*2*cellsize
-    barline += bar
+    bar_line = ''
+    for _ in range(num_cells):
+        bar_line += bar + space + (space * 2 * cellsize)
+    bar_line += bar
 
     # print the grid
-    for i in range(numcells):
-        print(plusline)
-        for j in range(cellsize):
-            print(barline)
-    print(plusline)
+    for _ in range(num_cells):
+        print(plus_line)
+        for __ in range(cellsize):
+            print(bar_line)
+    print(plus_line)
 
 
 # print_grid2(1, 0)
