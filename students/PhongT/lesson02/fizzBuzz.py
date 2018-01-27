@@ -4,7 +4,7 @@ fizz buzz Exercise
 """
 
 
-def printFizzBuzz():
+def print_fizzbuzz():
     """
     program that prints the numbers from 1 to 100 inclusive.
     But for multiples of three print "Fizz" instead of the number.
@@ -24,4 +24,4 @@ def printFizzBuzz():
 
 
 if __name__ == "__main__":
-    printFizzBuzz()
+    print_fizzbuzz()
