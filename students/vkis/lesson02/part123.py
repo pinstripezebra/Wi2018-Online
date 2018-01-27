@@ -13,14 +13,10 @@ def grid(row, col, size):
 	top = plus + minus * size
 	side = vertical + minus * size
 	
-	i = 1
-	while i <= row:							#print bunch of rows
+	for index in range(row):				#print bunch of rows
 		print(top * col + plus)				#print top grid that has # of columns + ending |			
-		j = 1
-		while j <= size:					#print a bunch of sides based on grid size
+		for index in range(size):			#print a bunch of sides based on grid size
 			print(side * col + vertical)	#print side grid that has # of columns
-			j += 1
-		i += 1
 	print(top * col + plus)					#print bottom close-out
 
 ##############################################################
