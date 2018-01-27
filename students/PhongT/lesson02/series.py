@@ -1,5 +1,5 @@
 """
-Lession 02
+Lesson 02
 Fibonacci Series Exercise
 """
 
@@ -8,6 +8,7 @@ def fibonacci(n):
     """The Fibonacci Series"""
     if n <= 0:
         print("Invalid input: n must be >= 0")
+        raise ValueError
     elif n == 1:
         return 0
     elif n == 2:
@@ -20,6 +21,7 @@ def lucas(n):
     """The Lucas Number"""
     if n <= 0:
         print("Invalid input: n must be >= 0")
+        raise ValueError
     elif n == 1:
         return 2
     elif n == 2:
@@ -29,29 +31,31 @@ def lucas(n):
 
 
 
-def sum_series(n, f0 = 0, f1 = 1):
+def sum_series(n, element_0 = 0, element_1 = 1):
     """
     :param n: nth number
-    :param f0/f1: if f0=0, f1=1 then it is fibonacci. Otherwise f0=2, f1=1 then it is lucas
+    :param element_0/element_1: value of zeroth, and 1st number in the series
+        If element_0=0, element_1=1 then it is fibonacci.
+        Otherwise element_0=2, element_1=1 then it is lucas
     :return: nth value in the series
     """
-    # check if valid input for f0 and f1: either 0/1, or 2/1
-    if not (f0==0 and f1==1 or f0==2 and f1==1):
-        print("Invalid f0/f1 arguments")
-        return None
+    # check if valid input for element_0 and element_1: either 0/1, or 2/1
+    if not (element_0==0 and element_1==1 or element_0==2 and element_1==1):
+        print("Invalid element_0/element_1 arguments")
+        raise ValueError
 
     if n <= 0:
         print("Invalid input n: n must be > 0")
-        return None
+        raise ValueError
     elif n == 1:
-        return f0
+        return element_0
     elif n == 2:
-        return f1
+        return element_1
     else:
-        return sum_series(n-1, f0, f1) + sum_series(n-2, f0, f1)
+        return sum_series(n - 1, element_0, element_1) + sum_series(n - 2, element_0, element_1)
 
 
-def testFibonacci():
+def test_fibonacci():
     """ test fibonacci series """
     assert (fibonacci(1) == 0)
     assert (fibonacci(2) == 1)
@@ -60,7 +64,7 @@ def testFibonacci():
     assert (fibonacci(5) == 3)
     assert (fibonacci(6) == 5)
 
-def testLucas():
+def test_lucas():
     """ test lucas series """
     assert (lucas(1) == 2)
     assert (lucas(2) == 1)
@@ -69,7 +73,7 @@ def testLucas():
     assert (lucas(5) == 7)
     assert (lucas(6) == 11)
 
-def testSumSeries():
+def test_sum_series():
     # test fibonacci
     assert (sum_series(1, 0, 1) == 0)
     assert (sum_series(2,     ) == 1) # test optional params with default values
@@ -89,6 +93,6 @@ def testSumSeries():
 
 if __name__ == "__main__":
     # testing
-    testFibonacci()
-    testLucas()
-    testSumSeries()
+    test_fibonacci()
+    test_lucas()
+    test_sum_series()
