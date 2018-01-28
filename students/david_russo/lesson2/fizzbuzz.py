@@ -17,4 +17,5 @@ def FizzBuzz():
             print("Fizz")
         else:
             print(i)
+
 FizzBuzz()
