@@ -39,4 +39,4 @@ def internal_row(width,columns):
 
 
 
-print_grid(width=2,columns=7,rows=3)
+print_grid(width=5,columns=3,rows=3)
